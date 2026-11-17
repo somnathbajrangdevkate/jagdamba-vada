@@ -20,191 +20,146 @@ import './index.css';
 
 const LOGO = '/jagdamba-vada-logo.png';
 
-type Language = 'MR' | 'EN';
-
 const products = [
   {
     no: '01',
-    nameMr: 'बर्गर वडा',
-    nameEn: 'Burger Vada',
-    descMr: 'बर्गरला द्या अस्सल वड्याची झणझणीत चव. प्रत्येक घासात चव आणि दर्जा!',
-    descEn: 'A hearty, flavour-packed patty made for memorable burger creations.',
-    tagMr: 'ग्राहकांची खास पसंती',
-    tagEn: 'CUSTOMER FAVOURITE',
+    name: 'Burger Vada',
+    marathi: 'बर्गर वडा',
+    desc: 'A hearty, flavour-packed patty made for memorable burger creations.',
+    descMr: 'बर्गरमध्ये वापरता येईल असा भरदार वडा. मेनूमध्ये वेगळा पर्याय ठेवायचा असेल तर नक्की पाहा.',
+    tag: 'CUSTOMER FAVOURITE',
+    tagMr: 'बर्गरसाठी खास',
   },
   {
     no: '02',
-    nameMr: 'कॉर्न पॅटीज',
-    nameEn: 'Corn Patties',
-    descMr: 'मक्याची चव आणि कुरकुरीतपणाचा भन्नाट संगम. प्रत्येक मेनूसाठी खास!',
-    descEn: 'Sweet corn goodness with a crisp golden finish.',
-    tagMr: 'खमंग आणि कुरकुरीत',
-    tagEn: 'CRISPY & DELICIOUS',
+    name: 'Corn Patties',
+    marathi: 'कॉर्न पॅटीज',
+    desc: 'Sweet corn goodness with a crisp golden finish.',
+    descMr: 'कॉर्न पॅटीज — नाश्ता आणि स्नॅक्सच्या मेनूसाठी एक चविष्ट पर्याय.',
+    tag: 'CRISPY & DELICIOUS',
+    tagMr: 'कॉर्नची चव',
   },
   {
     no: '03',
-    nameMr: 'साबुदाणा वडा',
-    nameEn: 'Sabudana Vada',
-    descMr: 'महाराष्ट्रीयन आवडता पदार्थ. उपवास असो वा नाश्ता, चवीला नेहमीच भारी!',
-    descEn: 'A much-loved classic with a satisfying bite.',
-    tagMr: 'पारंपरिक चव',
-    tagEn: 'TRADITIONAL TASTE',
+    name: 'Sabudana Vada',
+    marathi: 'साबुदाणा वडा',
+    desc: 'A much-loved classic with a satisfying bite.',
+    descMr: 'साबुदाण्याच्या वड्यांचा परिचित प्रकार. नाश्त्याच्या मेनूमध्ये ठेवता येईल असा पर्याय.',
+    tag: 'TRADITIONAL TASTE',
+    tagMr: 'नेहमीचा आवडता',
   },
   {
     no: '04',
-    nameMr: 'मक्का पालक वडा',
-    nameEn: 'Makka Palak Vada',
-    descMr: 'मक्का आणि पालक यांची रुचकर जोडी. तुमच्या मेनूमध्ये एक वेगळीच भर!',
-    descEn: 'A delicious combination of corn and leafy greens.',
-    tagMr: 'चवीचा अनोखा संगम',
-    tagEn: 'A UNIQUE BLEND',
+    name: 'Makka Palak Vada',
+    marathi: 'मक्का पालक वडा',
+    desc: 'A delicious combination of corn and leafy greens.',
+    descMr: 'मका आणि पालक यांचा वेगळा मेळ. नेहमीच्या पदार्थांपेक्षा काहीतरी वेगळं देण्यासाठी.',
+    tag: 'A UNIQUE BLEND',
+    tagMr: 'वेगळा पर्याय',
   },
   {
     no: '05',
-    nameMr: 'महाराजा वडा',
-    nameEn: 'Maharaja Vada',
-    descMr: 'नावाप्रमाणेच खास! तुमच्या खाद्य व्यवसायाच्या मेनूला देणारा शाही पर्याय.',
-    descEn: 'A signature-style snack made to stand out on your menu.',
-    tagMr: 'आमची खासियत',
-    tagEn: 'SIGNATURE RANGE',
+    name: 'Maharaja Vada',
+    marathi: 'महाराजा वडा',
+    desc: 'A signature-style snack made to stand out on your menu.',
+    descMr: 'तुमच्या मेनूमध्ये खास नावाने ठेवता येईल असा आमच्या उत्पादनांमधील एक पर्याय.',
+    tag: 'SIGNATURE RANGE',
+    tagMr: 'खास प्रकार',
   },
   {
     no: '06',
-    nameMr: 'स्पेशल जगदंबा वडा',
-    nameEn: 'Special Jagdamba Vada',
-    descMr: 'जगदंबाची खास चव. एकदा खाल तर पुन्हा मागाल, असा रुचकर अनुभव!',
-    descEn: 'Our special offering, created for customers to remember.',
-    tagMr: 'जगदंबाची खास चव',
-    tagEn: 'JAGDAMBA SPECIAL',
+    name: 'Special Jagdamba Vada',
+    marathi: 'स्पेशल जगदंबा वडा',
+    desc: 'Our special offering, created for customers to remember.',
+    descMr: 'जगदंबा वडवाळे यांचा खास वडा. अधिक माहितीसाठी आणि ऑर्डरसाठी संपर्क करा.',
+    tag: 'JAGDAMBA SPECIAL',
+    tagMr: 'जगदंबा स्पेशल',
   },
 ];
 
 const copy = {
-  MR: {
-    nav: ['मुख्यपृष्ठ', 'आमची गोष्ट', 'वड्यांची मेजवानी', 'व्यवसायासाठी', 'संपर्क'],
-    eyebrow: 'तयार-तळण्यासाठी वड्यांचे विश्वासार्ह उत्पादक',
-    titleA: 'चव अस्सल वड्यांची,',
-    titleB: 'विश्वास दर्जेदार व्यवसायाचा!',
-    intro:
-      'वडापाव सेंटर, नाश्ता सेंटर, हॉटेल्स आणि खाद्य व्यावसायिकांसाठी स्वादिष्ट तयार-तळण्यासाठी वडे. तुमचा व्यवसाय चालू द्या जोरात, वड्यांचा पुरवठा आमच्याकडून दमदार!',
-    explore: 'वड्यांची मेजवानी पाहा',
-    enquire: 'WhatsApp वर चौकशी करा',
-    strip: [
-      'दररोजची उत्पादन क्षमता',
-      'सोयीस्कर पॅकिंग',
-      'थंड साठवण व्यवस्था',
-      'स्थानिक वितरण सेवा',
-    ],
-    storyKicker: 'आमची ओळख',
-    storyTitle: 'चव अशी की ग्राहक पुन्हा येतील, पुरवठा असा की व्यवसाय निर्धास्त चालेल!',
-    storyText:
-      'आई जगदंबा वडवाळे येथे आम्ही वडापाव विक्रेते, नाश्ता सेंटर, हॉटेल्स, फूड काउंटर आणि वितरकांसाठी तयार-तळण्यासाठी वडे बनवतो. चव, गुणवत्ता आणि वेळेवर पुरवठा यांना आम्ही प्राधान्य देतो. तुमच्या व्यवसायाची चव वाढवणं, हाच आमचा प्रयत्न!',
-    productsKicker: 'आमची खास उत्पादनं',
-    productsTitle: 'तुमच्या मेनूमध्ये चवीची धमाल!',
-    productsText:
-      'ग्राहकांच्या आवडीचे वेगवेगळे वडे. तुमच्या व्यवसायासाठी सोयीस्कर आणि चविष्ट पर्याय.',
-    businessKicker: 'खाद्य व्यवसायांसाठी खास',
-    businessTitle: 'तुमचा व्यवसाय वाढू द्या, चवीची जबाबदारी आमची!',
-    businessText:
-      'तुम्ही ग्राहकांची सेवा करा, आम्ही वड्यांचा पुरवठा सांभाळतो. सोयीस्कर पॅकिंग, थंड साठवण आणि संभाजीनगर परिसरात वितरणाची सुविधा.',
-    features: [
-      ['५० आणि १०० नगांचे पॅक', 'तुमच्या गरजेनुसार सोयीस्कर पॅकिंगचे पर्याय.'],
-      ['थंड साठवण व्यवस्था', 'वितरणापूर्वी उत्पादने थंड साठवणीत ठेवली जातात.'],
-      ['संभाजीनगरमध्ये वितरण', 'संभाजीनगर परिसरातील खाद्य व्यावसायिकांसाठी वितरण.'],
-    ],
-    ctaTitle: 'तुमच्या व्यवसायात चवीची भर घालूया!',
-    ctaText:
-      'घाऊक ऑर्डर, पॅकिंग आणि उत्पादनांच्या माहितीसाठी आजच आमच्याशी संपर्क साधा. तुमच्या व्यवसायासाठी योग्य पर्याय निवडण्यात आम्ही मदत करू.',
-    contact: 'घाऊक ऑर्डरसाठी संपर्क करा',
-    trust: 'खाद्य व्यावसायिकांसाठी खास',
-    trustSub: 'तुमचा विश्वासू स्थानिक पुरवठादार',
-    storyPoints: ['चवीमध्ये सातत्य', 'व्यवसायासाठी विश्वासार्ह पुरवठा'],
-    footerText: 'चव अस्सल. गुणवत्ता विश्वासार्ह.',
-    photoLabel: 'चव मन जिंकणारी',
-    ready: 'तयार',
-    readySub: 'तळण्यासाठी',
-    fresh: 'ताजी चव. विश्वासार्ह गुणवत्ता.',
-    location: 'संभाजीनगर · महाराष्ट्र',
-    storyNote: 'चवदार पदार्थ',
-    storyNoteSub: 'व्यवसायाला साथ',
-    businessPanel: 'तुमचा',
-    businessPanelSub: 'व्यवसाय.',
-    commitment: 'आमची बांधिलकी',
-    ctaKicker: 'आई जगदंबा वडवाळे · संभाजीनगर',
-    footerExplore: 'वेबसाइटवर फिरा',
-    footerStory: 'आमची गोष्ट',
-    footerProducts: 'आमची उत्पादने',
-    footerBusiness: 'व्यवसायासाठी',
-    footerContact: 'संपर्क',
-    footerVisit: 'आमचा पत्ता',
-    whatsappMessage: 'नमस्कार आई जगदंबा वडवाळे, मला तुमच्या वड्यांच्या घाऊक ऑर्डरबद्दल माहिती हवी आहे.',
-    productMessage: 'नमस्कार आई जगदंबा वडवाळे, मला {product} या उत्पादनाबद्दल आणि घाऊक ऑर्डरबद्दल माहिती हवी आहे.',
-    madeFor: 'खाद्य व्यवसायाच्या साथीने, चवीच्या विश्वासाने.',
-    rights: 'सर्व हक्क राखीव.',
-    madeIn: 'संभाजीनगरमध्ये प्रेमाने बनवलेले',
-  },
   EN: {
-    nav: ['Home', 'Our Story', 'Our Products', 'For Business', 'Contact'],
-    eyebrow: 'TRUSTED READY-TO-FRY VADA MANUFACTURER',
-    titleA: 'Authentic taste,',
-    titleB: 'dependable business!',
+    nav: ['Home', 'Our Story', 'Products', 'For Business', 'Contact'],
+    eyebrow: 'READY-TO-FRY VADA MANUFACTURER',
+    titleA: 'The taste of',
+    titleB: 'great business.',
     intro:
-      'Delicious ready-to-fry vadas for vada pav shops, snack centres, hotels and food businesses. Keep your business moving while we take care of your vada supply.',
-    explore: 'Explore our products',
+      'Premium ready-to-fry vadas crafted for vada pav shops, snack counters and food distributors across Sambhajinagar.',
+    explore: 'Explore products',
     enquire: 'Enquire on WhatsApp',
     strip: [
       'Daily production capacity',
       'Convenient pack sizes',
-      'Refrigerated storage',
+      'Freshness-focused storage',
       'Local delivery',
     ],
-    storyKicker: 'OUR STORY',
-    storyTitle: 'A taste that brings customers back. A supply you can count on.',
+    storyKicker: 'A LITTLE ABOUT US',
+    storyTitle: 'A better snack experience. A dependable supply partner.',
     storyText:
-      'At Aai Jagdamba Vadwale, we make ready-to-fry vadas for vada pav stalls, snack centres, hotels, food counters and distributors. We focus on taste, quality and dependable supply. We are here to add more flavour to your business!',
-    productsKicker: 'OUR SPECIAL RANGE',
-    productsTitle: 'Bring more flavour to your menu!',
+      'At Jagdamba Vada, we make ready-to-fry snacks for the people who make every day delicious — vada pav stalls, snack centres, food counters and distributors. Our focus is dependable supply, consistent taste and a partnership you can count on.',
+    productsKicker: 'OUR PRODUCT RANGE',
+    productsTitle: 'A signature range for your menu.',
     productsText:
-      'A variety of customer favourites, made convenient for your food business.',
-    businessKicker: 'MADE FOR FOOD BUSINESSES',
-    businessTitle: 'Grow your business. We will take care of the taste!',
+      'A delicious variety of ready-to-fry snacks to add to your menu.',
+    businessKicker: 'BUILT FOR FOOD BUSINESSES',
+    businessTitle: 'Your customers come first. We help you serve them.',
     businessText:
-      'You serve your customers while we take care of the vada supply. Convenient packs, refrigerated storage and delivery across Sambhajinagar.',
+      'From convenient bulk packs to local delivery, we make it easier for your business to keep the good food coming.',
     features: [
-      ['50 and 100 piece packs', 'Convenient pack options to suit your needs.'],
-      ['Refrigerated storage', 'Products are kept refrigerated before delivery.'],
-      ['Sambhajinagar delivery', 'Delivery service for food businesses in the area.'],
+      ['Bulk-ready packs', 'Choose convenient 50 and 100 piece pack options.'],
+      ['Refrigerated storage', 'Products are stored refrigerated before delivery.'],
+      ['Local delivery', 'Focused delivery service across Sambhajinagar.'],
     ],
-    ctaTitle: 'Let’s add more flavour to your business!',
+    ctaTitle: 'Let’s make your menu memorable.',
     ctaText:
-      'Contact us today for bulk orders, pack sizes and product details. We will help you find the right option for your business.',
-    contact: 'Contact for bulk orders',
+      'Tell us what your business needs. We’ll help you find the right product and pack size.',
+    contact: 'Start a bulk enquiry',
     trust: 'Made for food businesses',
-    trustSub: 'Your trusted local supply partner',
-    storyPoints: ['Consistent taste', 'Dependable business supply'],
-    footerText: 'Authentic taste. Trusted quality.',
-    photoLabel: 'Made to delight',
-    ready: 'READY',
-    readySub: 'TO FRY',
-    fresh: 'FRESH TASTE. TRUSTED QUALITY.',
-    location: 'SAMBHAJINAGAR · MAHARASHTRA',
-    storyNote: 'GOOD FOOD',
-    storyNoteSub: 'GOOD BUSINESS',
-    businessPanel: 'YOUR',
-    businessPanelSub: 'BUSINESS.',
-    commitment: 'OUR COMMITMENT',
-    ctaKicker: 'AAI JAGDAMBA VADWALE · SAMBHAJINAGAR',
-    footerExplore: 'EXPLORE',
-    footerStory: 'Our Story',
-    footerProducts: 'Our Products',
-    footerBusiness: 'For Business',
-    footerContact: 'CONTACT',
-    footerVisit: 'VISIT US',
-    whatsappMessage: 'Hello Aai Jagdamba Vadwale, I would like to enquire about your bulk vada orders.',
-    productMessage: 'Hello Aai Jagdamba Vadwale, I am interested in {product}. Please share bulk order details.',
-    madeFor: 'Made for food businesses, with a promise of great taste.',
-    rights: 'ALL RIGHTS RESERVED.',
-    madeIn: 'MADE WITH CARE IN SAMBHAJINAGAR',
+    trustSub: 'Reliable local supply partner',
+    storyPoints: ['Consistent taste', 'Business-focused supply'],
+    footerText: 'Fresh taste. Trusted quality.',
+  },
+
+  मराठी: {
+    nav: ['मुख्यपृष्ठ', 'आमची गोष्ट', 'उत्पादने', 'व्यवसायासाठी', 'संपर्क'],
+    eyebrow: 'वडे आणि स्नॅक्सचे उत्पादन व पुरवठा',
+    titleA: 'तुमच्या दुकानासाठी',
+    titleB: 'जगदंबा वडा!',
+    intro:
+      'वडापावची गाडी, नाश्त्याचे सेंटर, हॉटेल किंवा स्नॅक्स पॉइंट — तुमच्या रोजच्या मेनूसाठी तळण्यासाठी तयार वडे आणि स्नॅक्स. संभाजीनगरमध्ये स्थानिक पुरवठा.',
+    explore: 'उत्पादने पाहा',
+    enquire: 'व्हॉट्सॲपवर चौकशी करा',
+    strip: [
+      'दररोजची उत्पादन क्षमता',
+      '५० आणि १०० नगांचे पॅक',
+      'थंड साठवण व्यवस्था',
+      'संभाजीनगरमध्ये पुरवठा',
+    ],
+    storyKicker: 'आमची ओळख',
+    storyTitle: 'तुमच्या दुकानात चविष्ट पर्यायांची भर.',
+    storyText:
+      'वडापावची गाडी असो, नाश्त्याचे सेंटर, हॉटेल किंवा खाद्यपदार्थांचे दुकान — रोजच्या कामात तयारीचा वेळ वाचावा आणि मेनूमध्ये आणखी पर्याय असावेत, यासाठी आम्ही तळण्यासाठी तयार वडे आणि स्नॅक्स पुरवतो. ५० आणि १०० नगांचे पॅक उपलब्ध आहेत. उत्पादने रेफ्रिजरेटेड साठवणीत ठेवून संभाजीनगरमध्ये पुरवठा केला जातो.',
+    productsKicker: 'जगदंबा वडवाळे यांची उत्पादने',
+    productsTitle: 'तुमच्या मेनूसाठी वडे आणि स्नॅक्स.',
+    productsText:
+      'वडापाव, नाश्ता किंवा स्नॅक्सच्या मेनूमध्ये ठेवता येतील असे आमचे विविध पर्याय पाहा.',
+    businessKicker: 'हॉटेल, स्टॉल आणि स्नॅक्स सेंटरसाठी',
+    businessTitle: 'तयारीचा वेळ वाचवा. मेनूमध्ये नवे पर्याय ठेवा.',
+    businessText:
+      'तुमच्या दुकानासाठी ५० किंवा १०० नगांचे पॅक निवडा. कोणता पदार्थ हवा आणि किती प्रमाणात हवा, ते सांगा. संभाजीनगर परिसरात स्थानिक पुरवठ्यासाठी आमच्याशी बोला.',
+    features: [
+      ['५० / १०० नगांचे पॅक', 'तुमच्या गरजेनुसार पॅकचा पर्याय निवडा.'],
+      ['थंड साठवण व्यवस्था', 'पुरवठ्यापूर्वी उत्पादने थंड साठवणीत ठेवली जातात.'],
+      ['संभाजीनगरमध्ये पुरवठा', 'सध्या संभाजीनगर परिसरातच डिलिव्हरी उपलब्ध.'],
+    ],
+    ctaTitle: 'तुमच्या दुकानासाठी कोणता वडा हवा?',
+    ctaText:
+      'उत्पादन, पॅक आणि पुरवठ्याबद्दल माहिती हवी आहे? आम्हाला थेट फोन करा किंवा व्हॉट्सॲपवर संदेश पाठवा.',
+    contact: 'ऑर्डरची चौकशी करा',
+    trust: 'दुकाने आणि खाद्य व्यवसायांसाठी',
+    trustSub: 'संभाजीनगरमधील स्थानिक पुरवठा',
+    storyPoints: ['५० आणि १०० नगांचे पॅक', 'स्थानिक पुरवठा'],
+    footerText: 'तुमच्या व्यवसायासाठी वडे आणि स्नॅक्स.',
   },
 };
 
@@ -213,21 +168,25 @@ const WHATSAPP = 'https://wa.me/918796137213';
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  // Marathi is the default language
-  const [language, setLanguage] = useState<Language>('MR');
+  const [language, setLanguage] = useState<'EN' | 'मराठी'>('मराठी');
 
   const t = copy[language];
-  const isMarathi = language === 'MR';
+  const isMarathi = language === 'मराठी';
 
   const whatsappLink = (message: string) =>
     `${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
-  const generalEnquiry = whatsappLink(t.whatsappMessage);
+  const generalEnquiry = whatsappLink(
+    isMarathi
+      ? 'नमस्कार, मला जगदंबा वडवाळे यांच्या वडे आणि स्नॅक्सबद्दल माहिती व घाऊक ऑर्डरची चौकशी करायची आहे.'
+      : 'Hello Jagdamba Vada, I would like to enquire about bulk orders.'
+  );
 
   const closeMenu = () => setMenuOpen(false);
 
   const navLinks = ['#home', '#story', '#products', '#business', '#contact'];
 
+  // Scroll reveal animation observer
   useEffect(() => {
     const elements = document.querySelectorAll(
       '.motion-reveal, .motion-left, .motion-right'
@@ -254,24 +213,33 @@ export default function App() {
   }, []);
 
   return (
-    <main>
+    <main lang={isMarathi ? 'mr' : 'en'}>
+      {/* Header */}
       <header className="site-header">
         <a
           className="brand"
           href="#home"
           onClick={closeMenu}
-          aria-label="आई जगदंबा वडवाळे मुख्यपृष्ठ"
+          aria-label="Jagdamba Vada home"
         >
-          <img className="brand-logo" src={LOGO} alt="आई जगदंबा वडवाळे" />
+          <img
+            className="brand-logo"
+            src={LOGO}
+            alt="आई जगदंबा वडवाळे"
+          />
         </a>
 
         <nav
           id="main-navigation"
           className={`nav-links ${menuOpen ? 'open' : ''}`}
-          aria-label={isMarathi ? 'मुख्य नेव्हिगेशन' : 'Main navigation'}
+          aria-label="Main navigation"
         >
           {t.nav.map((label, index) => (
-            <a key={label} href={navLinks[index]} onClick={closeMenu}>
+            <a
+              key={label}
+              href={navLinks[index]}
+              onClick={closeMenu}
+            >
               {label}
             </a>
           ))}
@@ -291,10 +259,10 @@ export default function App() {
           <button
             className="lang-toggle"
             type="button"
-            onClick={() => setLanguage(isMarathi ? 'EN' : 'MR')}
-            aria-label={isMarathi ? 'Switch to English' : 'मराठी भाषा निवडा'}
+            onClick={() => setLanguage(isMarathi ? 'EN' : 'मराठी')}
+            aria-label="Change website language"
           >
-            {isMarathi ? 'English' : 'मराठी'}
+            {isMarathi ? 'EN' : 'मराठी'}
           </button>
 
           <button
@@ -310,6 +278,7 @@ export default function App() {
         </div>
       </header>
 
+      {/* Hero */}
       <section className="hero" id="home">
         <div className="hero-inner">
           <div className="hero-copy">
@@ -347,6 +316,7 @@ export default function App() {
               <span className="trust-icon">
                 <CheckCircle2 size={18} aria-hidden="true" />
               </span>
+
               <span>
                 <b>{t.trust}</b>
                 <small>{t.trustSub}</small>
@@ -358,20 +328,20 @@ export default function App() {
             <div className="hero-photo-frame">
               <img
                 src="/jagdamba-vada-hero.png"
-                alt={isMarathi ? 'आई जगदंबा वडवाळे यांचे खाद्यपदार्थ' : 'Aai Jagdamba Vadwale food speciality'}
+                alt={isMarathi ? 'जगदंबा वडवाळे यांचे वडे आणि स्नॅक्स' : 'Jagdamba Vada food speciality'}
                 fetchPriority="high"
               />
 
               <div className="photo-label">
-                <span>JAGDAMBA</span>
-                <b>{t.photoLabel}</b>
+                <span>{isMarathi ? 'जगदंबा' : 'JAGDAMBA'}</span>
+                <b>{isMarathi ? 'चव तुमच्या सेवेत' : 'MADE TO DELIGHT'}</b>
               </div>
             </div>
 
             <div className="ready-badge">
               <span>✳</span>
-              <b>{t.ready}</b>
-              <small>{t.readySub}</small>
+              <b>{isMarathi ? 'तयार' : 'READY'}</b>
+              <small>{isMarathi ? 'तळण्यासाठी' : 'TO FRY'}</small>
             </div>
           </div>
         </div>
@@ -379,20 +349,21 @@ export default function App() {
         <div className="hero-bottom">
           <span>
             <i />
-            {t.fresh}
+            {isMarathi ? 'चविष्ट वडे आणि स्नॅक्स' : 'FRESH TASTE. TRUSTED QUALITY.'}
           </span>
-          <span>{t.location}</span>
+          <span>{isMarathi ? 'संभाजीनगर · महाराष्ट्र' : 'SAMBHAJINAGAR · MAHARASHTRA'}</span>
         </div>
       </section>
 
+      {/* Business highlights */}
       <section
         className="feature-strip motion-reveal"
-        aria-label={isMarathi ? 'व्यवसायाची वैशिष्ट्ये' : 'Business highlights'}
+        aria-label="Business highlights"
       >
         <div className="feature-item">
           <Factory aria-hidden="true" />
           <div>
-            <b>5,000+</b>
+            <b>{isMarathi ? 'सुमारे ५,०००' : 'Approx. 5,000'}</b>
             <small>{t.strip[0]}</small>
           </div>
         </div>
@@ -400,7 +371,7 @@ export default function App() {
         <div className="feature-item">
           <PackageCheck aria-hidden="true" />
           <div>
-            <b>{isMarathi ? '५० / १०० नग' : '50 / 100 pieces'}</b>
+            <b>50 / 100</b>
             <small>{t.strip[1]}</small>
           </div>
         </div>
@@ -408,7 +379,7 @@ export default function App() {
         <div className="feature-item">
           <Snowflake aria-hidden="true" />
           <div>
-            <b>{isMarathi ? 'थंड साठवण' : 'Refrigerated'}</b>
+            <b>{isMarathi ? 'रेफ्रिजरेटेड' : 'Refrigerated'}</b>
             <small>{t.strip[2]}</small>
           </div>
         </div>
@@ -422,12 +393,13 @@ export default function App() {
         </div>
       </section>
 
+      {/* Our story */}
       <section className="story section-pad" id="story">
         <div className="story-image motion-left">
           <div className="story-image-inner">
             <img
               src="/jagdamba-vada-hero.png"
-              alt={isMarathi ? 'जगदंबा वडवाळे उत्पादन' : 'Jagdamba Vada food range'}
+              alt={isMarathi ? 'जगदंबा वडवाळे यांची उत्पादने' : 'Jagdamba Vada food range'}
               loading="lazy"
             />
           </div>
@@ -435,9 +407,9 @@ export default function App() {
           <div className="story-note">
             <Leaf size={20} aria-hidden="true" />
             <span>
-              {t.storyNote}
+              {isMarathi ? 'चांगली चव' : 'GOOD FOOD'}
               <br />
-              <b>{t.storyNoteSub}</b>
+              <b>{isMarathi ? 'चांगला व्यवसाय' : 'GOOD BUSINESS'}</b>
             </span>
           </div>
         </div>
@@ -461,12 +433,13 @@ export default function App() {
           </div>
 
           <a className="text-link" href="#business">
-            {isMarathi ? 'व्यवसायासाठी आमच्याशी जोडा' : 'Connect with us'}
+            {isMarathi ? 'व्यवसायासाठी संपर्क करा' : 'Get to know us'}
             <ArrowUpRight size={17} aria-hidden="true" />
           </a>
         </div>
       </section>
 
+      {/* Products */}
       <section className="products section-pad" id="products">
         <div className="section-heading motion-reveal">
           <div>
@@ -474,16 +447,19 @@ export default function App() {
               <span />
               {t.productsKicker}
             </div>
+
             <h2>{t.productsTitle}</h2>
           </div>
+
           <p>{t.productsText}</p>
         </div>
 
         <div className="product-grid">
           {products.map((product) => {
-            const productName = isMarathi ? product.nameMr : product.nameEn;
             const productEnquiry = whatsappLink(
-              t.productMessage.replace('{product}', productName)
+              isMarathi
+                ? `नमस्कार, मला ${product.marathi} बद्दल माहिती आणि घाऊक ऑर्डरची चौकशी करायची आहे.`
+                : `Hello Jagdamba Vada, I am interested in ${product.name}. Please share bulk order details.`
             );
 
             return (
@@ -497,60 +473,60 @@ export default function App() {
                 <div className="product-photo">
                   <img
                     src="/jagdamba-vada-hero.png"
-                    alt={productName}
+                    alt={isMarathi ? product.marathi : product.name}
                     loading="lazy"
                   />
 
                   <span className="product-count">
-                    {isMarathi ? `${product.no} / ०६` : `${product.no} / 06`}
+                    {product.no} / 06
                   </span>
 
                   <span className="product-tag">
-                    {isMarathi ? product.tagMr : product.tagEn}
+                    {isMarathi ? product.tagMr : product.tag}
                   </span>
                 </div>
 
                 <div className="product-details">
                   <div>
-                    <h3>{productName}</h3>
+                    <h3>{product.name}</h3>
+                    <span className="marathi-name">
+                      {product.marathi}
+                    </span>
                   </div>
 
                   <a
                     href={productEnquiry}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={
-                      isMarathi
-                        ? `${productName} बद्दल चौकशी करा`
-                        : `Enquire about ${productName}`
-                    }
+                    aria-label={`Enquire about ${product.name}`}
                   >
                     <ArrowUpRight aria-hidden="true" />
                   </a>
                 </div>
 
-                <p>{isMarathi ? product.descMr : product.descEn}</p>
+                <p>{isMarathi ? product.descMr : product.desc}</p>
               </article>
             );
           })}
         </div>
       </section>
 
+      {/* B2B section */}
       <section className="business section-pad" id="business">
         <div className="business-panel motion-left">
           <div className="business-panel-top">
-            <span>AAI JAGDAMBA VADWALE</span>
+            <span>{isMarathi ? 'जगदंबा वडवाळे' : 'JAGDAMBA VADA'}</span>
             <ShieldCheck size={25} aria-hidden="true" />
           </div>
 
           <div className="business-big">
-            {t.businessPanel}
+            {isMarathi ? 'तुमचा' : 'YOUR'}
             <br />
-            <em>{t.businessPanelSub}</em>
+            <em>{isMarathi ? 'व्यवसाय.' : 'BUSINESS.'}</em>
           </div>
 
           <div className="business-panel-bottom">
-            <span>{t.commitment}</span>
+            <span>{isMarathi ? 'आमची बांधिलकी' : 'OUR COMMITMENT'}</span>
             <span>✳</span>
           </div>
 
@@ -597,10 +573,11 @@ export default function App() {
         </div>
       </section>
 
+      {/* Contact CTA */}
       <section className="cta-band motion-reveal" id="contact">
         <div className="section-kicker">
           <span />
-          {t.ctaKicker}
+          {isMarathi ? 'जगदंबा वडवाळे · संभाजीनगर' : 'JAGDAMBA VADA · SAMBHAJINAGAR'}
         </div>
 
         <h2>{t.ctaTitle}</h2>
@@ -624,13 +601,14 @@ export default function App() {
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="footer motion-reveal">
         <div className="footer-main">
           <div className="footer-brand">
             <a
               className="brand footer-logo-link"
               href="#home"
-              aria-label="आई जगदंबा वडवाळे मुख्यपृष्ठ"
+              aria-label="Jagdamba Vada home"
             >
               <img
                 className="footer-brand-logo"
@@ -643,27 +621,31 @@ export default function App() {
             <p>
               {t.footerText}
               <br />
-              {t.madeFor}
+              {isMarathi ? 'वडापाव स्टॉल, हॉटेल आणि स्नॅक्स व्यवसायांसाठी.' : 'Made for the people who serve great food.'}
             </p>
           </div>
 
           <div className="footer-col">
-            <b>{t.footerExplore}</b>
-            <a href="#story">{t.footerStory}</a>
-            <a href="#products">{t.footerProducts}</a>
-            <a href="#business">{t.footerBusiness}</a>
+            <b>{isMarathi ? 'माहिती' : 'EXPLORE'}</b>
+            <a href="#story">{isMarathi ? 'आमची ओळख' : 'Our Story'}</a>
+            <a href="#products">{isMarathi ? 'उत्पादने' : 'Our Products'}</a>
+            <a href="#business">{isMarathi ? 'व्यवसायासाठी' : 'For Business'}</a>
           </div>
 
           <div className="footer-col">
-            <b>{t.footerContact}</b>
+            <b>{isMarathi ? 'संपर्क' : 'CONTACT'}</b>
             <a href={`tel:${PHONE}`}>
               <Phone size={15} aria-hidden="true" />
               +91 87961 37213
             </a>
 
-            <a href={generalEnquiry} target="_blank" rel="noreferrer">
+            <a
+              href={generalEnquiry}
+              target="_blank"
+              rel="noreferrer"
+            >
               <MessageCircle size={15} aria-hidden="true" />
-              {t.enquire}
+              {isMarathi ? 'व्हॉट्सॲपवर संदेश पाठवा' : 'WhatsApp enquiry'}
             </a>
 
             <span>
@@ -673,28 +655,29 @@ export default function App() {
           </div>
 
           <div className="footer-col">
-            <b>{t.footerVisit}</b>
+            <b>{isMarathi ? 'पत्ता' : 'VISIT US'}</b>
             <p>
-              गल्ली नं. C4, एस. मारोती रोड,
+              {isMarathi ? 'गल्ली क्र. C4, एस. मारोती रोड,' : 'Galli No C4, S Maroti Road,'}
               <br />
-              संजयनगर, संभाजीनगर,
+              {isMarathi ? 'संजयनगर, संभाजीनगर,' : 'Sanjaynagar, Sambhajinagar,'}
               <br />
-              महाराष्ट्र, भारत.
+              {isMarathi ? 'महाराष्ट्र, भारत.' : 'Maharashtra, India.'}
             </p>
           </div>
         </div>
 
         <div className="footer-bottom">
           <span>
-            © {new Date().getFullYear()} AAI JAGDAMBA VADWALE. {t.rights}
+            © {new Date().getFullYear()} {isMarathi ? 'जगदंबा वडवाळे. सर्व हक्क राखीव.' : 'JAGDAMBA VADA. ALL RIGHTS RESERVED.'}
           </span>
 
           <span>
-            {t.madeIn} <i>✳</i>
+            {isMarathi ? 'संभाजीनगरमध्ये आपुलकीने तयार' : 'MADE WITH CARE IN SAMBHAJINAGAR'} <i>✳</i>
           </span>
         </div>
       </footer>
 
+      {/* Mobile WhatsApp CTA */}
       <a
         className="mobile-whatsapp"
         href={generalEnquiry}
